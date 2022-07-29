@@ -8,7 +8,7 @@ import Movie from "../theme/Movie";
 
 /* "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1TYXF-IlqTCvBs408b2ZW2wL8wK59S4yMw&usqp=CAU.png"
  */
-function MovieTemplate() {
+function MoviesList() {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
@@ -19,31 +19,33 @@ function MovieTemplate() {
     }, [])
 
     return (
-        <Container>
-            <h1>Selecione o filme</h1>
-            <MoviesList>
-                {movies.map(item => {
-                    return (
-                        <Link to={`/sessoes/${item.id}`} key={item.id}>
-                            <Movie >
-                                <img src={item.posterURL} alt='tome' />
-                            </Movie>
-                        </Link>
-                    )
-                })}
-            </MoviesList>
-        </Container >
+        <Movies>
+            {movies.map(item => {
+                return (
+                    <Link to={`/sessoes/${item.id}`} key={item.id}>
+                        <Movie >
+                            <img src={item.posterURL} alt='tome' />
+                        </Movie>
+                    </Link>
+                )
+            })}
+        </Movies>
+
     )
 }
 
 export default function MoviesOptions() {
     return (
-        <MovieTemplate />
+        <Container>
+            <h1>Selecione o filme</h1>
+            <MoviesList />
+        </Container >
+
     )
 }
 
 
-const MoviesList = styled.div`
+const Movies = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

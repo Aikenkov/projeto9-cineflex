@@ -4,6 +4,7 @@ import styled from "styled-components"
 import axios from 'axios';
 import Container from "../theme/Container";
 import Movie from "../theme/Movie";
+import Footer from "./Footer";
 
 
 
@@ -22,39 +23,42 @@ function MovieSessionsTemplate() {
 
 
     return (
-        <Container>
-            <h1>Selecione o horário</h1>
+        <>
             {days != false ? (
                 <AllSessions>
                     {days.map(item => {
                         return (
                             <WeekDaySessions key={item.id}>
-
                                 <p>{item.weekday} - {item.date}</p>
                                 <div>
                                     {(item.showtimes).map(value => {
                                         return <button key={value.id}>{value.name} </button>
                                     })}
                                 </div>
-
                             </WeekDaySessions>
                         )
                     })}
-
                 </AllSessions>)
                 : (<h1>Carregando...</h1>)}
             <Footer>
-                <TesteMovie>
+                <SmallMovie>
                     <img src={sessions.posterURL} />
-                </TesteMovie>
-                <h2>{sessions.title}</h2>
+                </SmallMovie>
+                <div>
+                    <h2>{sessions.title}</h2>
+                </div>
             </Footer>
-        </Container>
+        </>
     )
 }
 
 export default function MovieSessions() {
-    return <MovieSessionsTemplate />
+    return (
+        <Container>
+            <h1>Selecione o horário</h1>
+            <MovieSessionsTemplate />
+        </Container>
+    )
 }
 
 
@@ -64,7 +68,7 @@ const WeekDaySessions = styled.div`
         margin-left: 20px;
         margin-bottom: 23px;
         
-        & > div {
+        div {
             display: flex;
         }
     
@@ -100,24 +104,8 @@ const AllSessions = styled.div`
    
 `;
 
-const Footer = styled.div`
-    height: 117px;
-    width: 100vw;
-    background-color: #DFE6ED;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    border: 1px solid #9EADBA;
-    display: flex;
-    align-items: center;
 
-    h2{
-        font-size: 26px;
-        color: #293845;
-    }
-`;
-
-const TesteMovie = styled(Movie)`
+const SmallMovie = styled(Movie)`
     width: 64px;
     height: 89px;
     margin: 0 15px 0 10px;
