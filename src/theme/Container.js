@@ -10,7 +10,7 @@ const Container = styled.div`
     h1{
         font-size: 24px;
         text-align: Center;
-        padding: 55px 0 ;
+        padding: 55px 0 0 ;
     }
 
 `

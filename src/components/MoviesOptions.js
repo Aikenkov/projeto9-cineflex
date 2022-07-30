@@ -46,7 +46,7 @@ const Movies = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 20px;
+    margin: 55px 20px 0;
 
 `
 

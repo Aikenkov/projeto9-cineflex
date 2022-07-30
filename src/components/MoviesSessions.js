@@ -106,7 +106,7 @@ const AllSessions = styled.div`
     flex-direction: column;
     width: 100vw;
     justify-content: center;
-    margin-bottom: 130px;
+    margin: 55px 0 130px;
    
 `;
 
