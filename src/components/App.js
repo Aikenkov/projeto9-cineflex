@@ -6,7 +6,7 @@ import GlobalStyle from '../theme/globalStyles';
 import Navbar from "./Navbar";
 import MoviesOptions from "./MoviesOptions";
 import MovieSessions from "./MoviesSessions";
-
+import MovieSeats from "./MovieSeats";
 
 
 
@@ -20,6 +20,7 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<MoviesOptions />} />
                     <Route path="/sessoes/:idFilme" element={<MovieSessions />} />
+                    <Route path="/assentos/:idSessao" element={<MovieSeats />} />
                 </Routes>
             </BrowserRouter>
         </>

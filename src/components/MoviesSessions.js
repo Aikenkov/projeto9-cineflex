@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import styled from "styled-components"
 import axios from 'axios';
 import Container from "../theme/Container";
-import Movie from "../theme/Movie";
 import Footer from "./Footer";
+import Movie from "../theme/Movie";
 
 
 
@@ -32,7 +32,11 @@ function MovieSessionsTemplate() {
                                 <p>{item.weekday} - {item.date}</p>
                                 <div>
                                     {(item.showtimes).map(value => {
-                                        return <button key={value.id}>{value.name} </button>
+                                        return (
+                                            <Link key={value.id} to={`/assentos/${value.id}`}>
+                                                <button >{value.name} </button>
+                                            </Link>
+                                        )
                                     })}
                                 </div>
                             </WeekDaySessions>
@@ -41,9 +45,9 @@ function MovieSessionsTemplate() {
                 </AllSessions>)
                 : (<h1>Carregando...</h1>)}
             <Footer>
-                <SmallMovie>
+                <Movie height="89px" width="64px" margin="0 15px 0 10px">
                     <img src={sessions.posterURL} />
-                </SmallMovie>
+                </Movie>
                 <div>
                     <h2>{sessions.title}</h2>
                 </div>
@@ -76,7 +80,8 @@ const WeekDaySessions = styled.div`
             margin-bottom: 23px;
             font-size: 20px;
         }
-    
+
+       
 
          button {
             display: flex;
@@ -91,6 +96,7 @@ const WeekDaySessions = styled.div`
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            
         }
 `
 
@@ -100,7 +106,7 @@ const AllSessions = styled.div`
     flex-direction: column;
     width: 100vw;
     justify-content: center;
-    
+    margin-bottom: 130px;
    
 `;
 

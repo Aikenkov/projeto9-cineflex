@@ -5,9 +5,6 @@ import { useState, useEffect } from 'react';
 import Container from "../theme/Container";
 import Movie from "../theme/Movie";
 
-
-/* "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM1TYXF-IlqTCvBs408b2ZW2wL8wK59S4yMw&usqp=CAU.png"
- */
 function MoviesList() {
     const [movies, setMovies] = useState([])
 
@@ -23,7 +20,7 @@ function MoviesList() {
             {movies.map(item => {
                 return (
                     <Link to={`/sessoes/${item.id}`} key={item.id}>
-                        <Movie >
+                        <Movie height="209px" width="145px" margin="5px 15px">
                             <img src={item.posterURL} alt='tome' />
                         </Movie>
                     </Link>
