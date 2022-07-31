@@ -6,9 +6,7 @@ import Container from "../theme/Container";
 import Footer from "./Footer";
 import Movie from "../theme/Movie";
 
-
-
-function MovieSessionsTemplate() {
+export default function MovieSessions() {
     const [sessions, setSessions] = useState([]);
     const [days, setDays] = useState(false);
     const params = useParams();
@@ -21,10 +19,10 @@ function MovieSessionsTemplate() {
         })
     }, [])
 
-
     return (
-        <>
-            {days != false ? (
+        <Container>
+            <h1>Selecione o horário</h1>
+            {days !== false ?
                 <AllSessions>
                     {days.map(item => {
                         return (
@@ -42,47 +40,33 @@ function MovieSessionsTemplate() {
                             </WeekDaySessions>
                         )
                     })}
-                </AllSessions>)
-                : (<h1>Carregando...</h1>)}
+                </AllSessions>
+                : <h1> Carregando... </h1>}
             <Footer>
                 <Movie height="89px" width="64px" margin="0 15px 0 10px">
-                    <img src={sessions.posterURL} />
+                    <img src={sessions.posterURL} alt="alt" />
                 </Movie>
                 <div>
                     <h2>{sessions.title}</h2>
                 </div>
             </Footer>
-        </>
-    )
-}
-
-export default function MovieSessions() {
-    return (
-        <Container>
-            <h1>Selecione o horário</h1>
-            <MovieSessionsTemplate />
+            )
         </Container>
     )
 }
 
 
-const WeekDaySessions = styled.div`
-       
+const WeekDaySessions = styled.div`   
         height: 100px;
         margin-left: 20px;
         margin-bottom: 23px;
-        
         div {
             display: flex;
         }
-    
         p {
             margin-bottom: 23px;
             font-size: 20px;
         }
-
-       
-
          button {
             display: flex;
             align-items: center;
@@ -95,24 +79,13 @@ const WeekDaySessions = styled.div`
             margin-right: 8px;
             border: none;
             border-radius: 3px;
-            cursor: pointer;
-            
+            cursor: pointer;       
         }
 `
-
-
 const AllSessions = styled.div`
     display: flex;
     flex-direction: column;
     width: 100vw;
     justify-content: center;
     margin: 55px 0 130px;
-   
 `;
-
-
-const SmallMovie = styled(Movie)`
-    width: 64px;
-    height: 89px;
-    margin: 0 15px 0 10px;
-`
