@@ -2,7 +2,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Seat({ seat, selected, setSelected }) {
+export default function Seat({ seat, selected, setSelected, selectedId, setSelectedId }) {
     const [color, setColor] = useState("#C3CFD9");
     const [border, setBorder] = useState("#7B8B99");
     const [clicked, setClicked] = useState(false);
@@ -33,13 +33,16 @@ export default function Seat({ seat, selected, setSelected }) {
 
     function selectSeat() {
         setSelected([...selected, seat.name]);
+        setSelectedId([...selectedId, seat.id]);
         setColor("#8DD7CF");
         setBorder("#1AAE9E");
         setClicked(true);
     }
     function unselectSeat() {
         let ind = selected.indexOf(seat.name);
+        let ind2 = selectedId.indexOf(seat.id);
         selected.splice(ind, 1);
+        selectedId.splice(ind2, 1);
         setColor("#C3CFD9");
         setBorder("#7B8B99");
         setClicked(false);

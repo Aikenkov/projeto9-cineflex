@@ -16,6 +16,7 @@ export default function App() {
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
     const [selected, setSelected] = useState([]);
+    const [selectedId, setSelectedId] = useState([]);
     const [seats, setSeats] = useState([]);
 
 
@@ -34,6 +35,8 @@ export default function App() {
                         element={<MovieSeats
                             selected={selected}
                             setSelected={setSelected}
+                            selectedId={selectedId}
+                            setSelectedId={setSelectedId}
                             seats={seats}
                             setSeats={setSeats}
                             name={name}

@@ -17,7 +17,9 @@ export default function MovieSeats({
     name,
     setName,
     cpf,
-    setCpf, }) {
+    setCpf,
+    selectedId,
+    setSelectedId }) {
 
     const { idSessao } = useParams();
     let navigate = useNavigate();
@@ -39,9 +41,9 @@ export default function MovieSeats({
 
     function requestSeats(e) {
         e.preventDefault();
-        let ids = selected.map(item => {
+        let ids = selectedId.map(item => {
             return Number(item)
-        })
+        });
 
         let data = {
             ids: ids,
@@ -66,6 +68,8 @@ export default function MovieSeats({
                         seats={seats.seats}
                         selected={selected}
                         setSelected={setSelected}
+                        selectedId={selectedId}
+                        setSelectedId={setSelectedId}
                     />
                     <form onSubmit={requestSeats}>
                         <Forms>

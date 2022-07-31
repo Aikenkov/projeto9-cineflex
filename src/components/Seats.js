@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import Seat from "./Seat";
 
-export default function Seats({ seats, selected, setSelected }) {
+export default function Seats({ seats, selected, setSelected, selectedId, setSelectedId }) {
 
     return (
         <Wraper>
@@ -14,6 +14,8 @@ export default function Seats({ seats, selected, setSelected }) {
                         index={index}
                         selected={selected}
                         setSelected={setSelected}
+                        selectedId={selectedId}
+                        setSelectedId={setSelectedId}
                     />
                 ))}
             </AllSeats>
