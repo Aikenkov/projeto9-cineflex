@@ -44,14 +44,14 @@ export default function MovieSeats({
         })
 
         let data = {
-            id: ids,
+            ids: ids,
             name: name,
             cpf: cpf,
         };
         console.log(data)
 
         const promise = axios.post(
-            "https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", data);
+            `https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, data);
         promise.then(navigate("/sucesso"));
     }
 
@@ -133,6 +133,7 @@ const Forms = styled.div`
     border: none;
     font-size: 18px;
     border-radius: 3px;
+    cursor: pointer;
   }
   input {
     width: 300px;
