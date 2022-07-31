@@ -13,16 +13,22 @@ export default function MovieSeats({
     selected,
     setSelected,
     seats,
-    setSeats, }) {
+    setSeats,
+    name,
+    setName,
+    cpf,
+    setCpf, }) {
 
     const { idSessao } = useParams();
     let navigate = useNavigate();
 
 
+
+
     useEffect(() => {
         setSelected([]);
-        /* setName("");
-        setCpf(""); */
+        setName("");
+        setCpf("");
         const promise = axios.get(
             `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`
         );
@@ -31,6 +37,23 @@ export default function MovieSeats({
         });
     }, []);
 
+    function requestSeats(e) {
+        e.preventDefault();
+        let ids = selected.map(item => {
+            return Number(item)
+        })
+
+        let data = {
+            id: ids,
+            name: name,
+            cpf: cpf,
+        };
+        console.log(data)
+
+        const promise = axios.post(
+            "https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", data);
+        promise.then(navigate("/sucesso"));
+    }
 
     return (
         <Container>
@@ -44,6 +67,28 @@ export default function MovieSeats({
                         selected={selected}
                         setSelected={setSelected}
                     />
+                    <form onSubmit={requestSeats}>
+                        <Forms>
+                            <h2>Nome do comprador</h2>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Digite seu Nome..."
+                                required
+                            />
+                            <h2>CPF do comprador</h2>
+                            <input
+                                type="number"
+                                value={cpf}
+                                onChange={(e) => setCpf(e.target.value)}
+                                placeholder="Digite seu Cpf..."
+                                required
+                            />
+
+                            <button type="submit">Reservar Assento(s)</button>
+                        </Forms>
+                    </form>
                     <Footer>
                         <Movie height="89px" width="64px" margin="0 15px 0 10px">
                             <img src={seats.movie.posterURL} alt="alt" />
@@ -59,3 +104,43 @@ export default function MovieSeats({
         </Container>
     )
 }
+
+
+const Forms = styled.div`
+  margin-top: 50px;
+  margin-bottom: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  
+ & ::placeholder{
+    font-style: italic;
+    color: #AFAFAF;
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: #293845;
+    margin-bottom: 10px;
+  }
+  button {
+    width: 225px;
+    height: 42px;
+    color: white;
+    background-color: #e8833a;
+    border: none;
+    font-size: 18px;
+    border-radius: 3px;
+  }
+  input {
+    width: 300px;
+    height: 51px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: 1px solid #d4d4d4;
+  }
+`;

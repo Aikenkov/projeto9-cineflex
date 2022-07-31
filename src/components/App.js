@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import MoviesOptions from "./MoviesOptions";
 import MovieSessions from "./MoviesSessions";
 import MovieSeats from "./MovieSeats";
+import RequestSucess from "./RequestSucess";
 
 
 
@@ -35,10 +36,25 @@ export default function App() {
                             setSelected={setSelected}
                             seats={seats}
                             setSeats={setSeats}
+                            name={name}
+                            setName={setName}
+                            cpf={cpf}
+                            setCpf={setCpf}
                         />}
-
+                    />
+                    <Route
+                        path="/sucesso"
+                        element={
+                            <RequestSucess
+                                name={name}
+                                cpf={cpf}
+                                selected={selected}
+                                seats={seats}
+                            />
+                        }
                     />
                 </Routes>
+
             </BrowserRouter>
         </>
     )
