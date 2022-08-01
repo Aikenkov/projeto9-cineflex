@@ -53,7 +53,6 @@ export default function MovieSeats({
                 name: name,
                 cpf: cpf,
             };
-            console.log(data)
 
             const promise = axios.post(
                 `https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, data);
