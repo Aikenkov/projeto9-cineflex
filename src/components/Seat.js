@@ -8,25 +8,28 @@ export default function Seat({ seat, selected, setSelected, selectedId, setSelec
     const [clicked, setClicked] = useState(false);
     seat = { ...seat, clicked };
 
-
+    let minorseat = seat.name
+    if (minorseat < 10) {
+        minorseat = "0" + minorseat
+    }
 
     if (seat.isAvailable === true && seat.clicked === false) {
         return (
             <SeatButton color={color} border={border} onClick={selectSeat}>
-                {seat.name}
+                {minorseat}
             </SeatButton>
         );
     } else if (seat.clicked === true) {
         return (
             <SeatButton color={color} border={border} onClick={unselectSeat}>
-                {seat.name}
+                {minorseat}
             </SeatButton>
         );
     } else {
         return (
             <SeatButton color={"#FBE192"} border={"#F7C52B"}
                 onClick={() => { alert("Este assento não está disponível") }}>
-                {seat.name}
+                {minorseat}
             </SeatButton>
         );
     }

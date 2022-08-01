@@ -74,7 +74,7 @@ const Wraper = styled.div`
         font-weight: 400;
         font-size: 22px;
         letter-spacing: 1.5px;
-        margin-bottom: 5px;
+        margin-bottom: 6px;
     }
     button {
     margin-top: 50px;
