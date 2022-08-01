@@ -51,6 +51,7 @@ export default function App() {
                             <RequestSucess
                                 name={name}
                                 cpf={cpf}
+                                setCpf={setCpf}
                                 selected={selected}
                                 seats={seats}
                             />

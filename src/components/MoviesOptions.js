@@ -9,10 +9,12 @@ function MoviesList() {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         const promise = axios.get('https://mock-api.driven.com.br/api/v7/cineflex/movies')
         promise.then(res => {
             setMovies(res.data)
         })
+
     }, [])
 
     return (

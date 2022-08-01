@@ -1,8 +1,24 @@
 
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+export default function RequestSucess({ name, cpf, setCpf, selected, seats }) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        formatCPF(cpf);
+    }, [])
 
-export default function RequestSucess({ name, cpf, selected, seats }) {
+    function formatCPF(cpf) {
+        const currentCpf = cpf
+
+        let formattedCpf;
+
+        formattedCpf = currentCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,
+            function (regex, argument1, argument2, argument3, argument4) {
+                return argument1 + '.' + argument2 + '.' + argument3 + '-' + argument4;
+            })
+        setCpf(formattedCpf)
+    }
 
     return (
         <Wraper>

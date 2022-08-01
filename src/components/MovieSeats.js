@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import axios from "axios";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import Container from "../theme/Container";
 import Footer from "./Footer";
@@ -28,6 +28,7 @@ export default function MovieSeats({
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         setSelected([]);
         setName("");
         setCpf("");
@@ -41,21 +42,28 @@ export default function MovieSeats({
 
     function requestSeats(e) {
         e.preventDefault();
-        let ids = selectedId.map(item => {
-            return Number(item)
-        });
 
-        let data = {
-            ids: ids,
-            name: name,
-            cpf: cpf,
-        };
-        console.log(data)
+        if (cpf.length === 11) {
+            let ids = selectedId.map(item => {
+                return Number(item)
+            });
 
-        const promise = axios.post(
-            `https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, data);
-        promise.then(navigate("/sucesso"));
+            let data = {
+                ids: ids,
+                name: name,
+                cpf: cpf,
+            };
+            console.log(data)
+
+            const promise = axios.post(
+                `https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, data);
+            promise.then(navigate("/sucesso"));
+        } else {
+            alert("Cpf deve conter 11 digitos")
+        }
+
     }
+
 
     return (
         <Container>
@@ -87,6 +95,7 @@ export default function MovieSeats({
                                 value={cpf}
                                 onChange={(e) => setCpf(e.target.value)}
                                 placeholder="Digite seu Cpf..."
+                                pattern="[0-9]{11}"
                                 required
                             />
 

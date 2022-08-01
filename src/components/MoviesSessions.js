@@ -12,6 +12,7 @@ export default function MovieSessions() {
     const params = useParams();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${params.idFilme}/showtimes`)
         promise.then(res => {
             setSessions(res.data)
