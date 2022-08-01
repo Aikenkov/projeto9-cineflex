@@ -42,7 +42,10 @@ export default function MovieSeats({
 
     function requestSeats(e) {
         e.preventDefault();
-
+        if (selectedId.length === 0) {
+            alert("Selecione um assento");
+            return
+        }
         if (cpf.length === 11) {
             let ids = selectedId.map(item => {
                 return Number(item)
