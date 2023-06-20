@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Projeto9 - Cineflex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto "projeto9-cineflex" é um site que simula a reserva de ingressos de cinema com horário e escolha de assentos. Foi desenvolvido com o propósito de aprendizado utilizando HTML, CSS e ReactJS. O objetivo principal do projeto foi explorar a construção de interfaces utilizando ReactJS, criar interfaces interativas com animações em CSS, desenvolver uma single page application e carregar dados dinâmicos de uma API.
 
-## Available Scripts
+## Descrição do Projeto
 
-In the project directory, you can run:
+O Cineflex é um site que permite aos usuários simular a reserva de ingressos para o cinema. Ao acessar a página inicial, os usuários podem escolher entre uma variedade de filmes disponíveis. Após selecionar um filme, são exibidos os dias e horários disponíveis para a sessão. Os usuários podem escolher um horário e são redirecionados para a página de seleção de assentos, onde podem escolher um assento disponível. Em seguida, os usuários devem informar seu nome e CPF, com validação do CPF. Por fim, eles são levados para uma página de resumo do pedido, que exibe todas as informações selecionadas.
 
-### `npm start`
+A interface do projeto foi construída utilizando ReactJS, permitindo uma experiência de usuário dinâmica e interativa. Além disso, foram adicionadas animações em CSS para tornar a navegação pelo site mais fluída e agradável.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Utilização do Projeto
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para visualizar o projeto, acesse o seguinte link do Vercel: [Projeto9-Cineflex](https://projeto9-cineflex-aikenkov.vercel.app/)
 
-### `npm test`
+Certifique-se de ter um navegador web atualizado para uma experiência ideal.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Recursos Utilizados
 
-### `npm run build`
+- HTML
+- CSS
+- ReactJS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Conclusão
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O Cineflex é uma aplicação que permite aos usuários simular a reserva de ingressos para o cinema. Através do desenvolvimento deste projeto utilizando ReactJS, pude aprimorar minhas habilidades na construção de interfaces interativas e animações em CSS. Além disso, pude explorar o conceito de single page application e carregar dados dinâmicos de uma API. Espero que você aproveite a experiência de simular a reserva de ingressos no Cineflex!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
